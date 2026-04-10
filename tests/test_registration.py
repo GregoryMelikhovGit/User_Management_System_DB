@@ -36,6 +36,11 @@ def test_add_new_user(setup_database, connection):
     user = cursor.fetchone()
     assert user, "Пользователь должен быть добавлен в базу данных."
 
+def test_fetch_users():
+    add_user('testuser1', 'testuser1@example.com', 'password1234')
+    display_users()
+    assert "Логин: testuser1, Электронная почта: 'testuser1@example.com'"
+
 # Возможные варианты тестов:
 """
 Тест добавления пользователя с существующим логином.
